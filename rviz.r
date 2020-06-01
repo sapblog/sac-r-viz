@@ -1,12 +1,12 @@
 library(ggplot2)
 
-# SAC reformat dates - SAC sends dates as strings looking 
+# SAP Analytics Cloud sends dates as strings looking 
 # like: Jan 1, 2019 01:01:01 PM - we need real R dates.
 
 dataSet$Time <- as.POSIXct(dataSet$Time, tz="UTC", format="%b %d, %Y %I:%M:%S %p")
 
-# Ensure the order of the readings - SAC does not necessarily
-# provide the data sorted.
+# SAP Analytics Cloud does not necessarily provide the
+# data sorted ensure the order of the readings.
 
 dataSet <- dataSet[order(dataSet$Time),]
 
